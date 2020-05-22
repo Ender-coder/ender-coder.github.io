@@ -1,0 +1,105 @@
+\documentclass{ctexart}
+    \usepackage{ctex}
+    \usepackage{geometry}
+    \geometry{left=0.6cm, right=0.6cm, top=1.5cm, bottom=1.2cm}
+    \geometry{headheight=20pt}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \lfoot{}
+    \usepackage{graphicx}
+    \usepackage{caption}
+    \usepackage{setspace}
+
+    \title{Numerical Methods \\ Homework 2}
+    \author{18340009 陈安德}
+    \date{}
+\begin{document}
+    \maketitle
+\begin{flushleft}
+    \section*{P50}
+    \subsection*{1.Determine rigorously if each function has a unique fixed point on the given interval(follow Example 2.3). \\ 
+    (a) $g(x)=1-\frac{x^2}{4}$ on $[0,1]$ \\
+    (b) $g(x)=2^{-x}$ on $[0,1]$ \\
+    (c) $g(x)=\frac{1}{x}$ on $[0.5,5.2]$ }
+    \begin{tabular}{rl}
+    (a)& 根据定理2.2有 \\
+       & $g'(x)=-\frac{x}{2}$, 则 $g(x)$, $g'(x)$ 在 $[0,1]$ 上连续.\\
+       & 对于所有 $x\in[0,1]$, $g(x)\in[\frac{3}{4},1]\subseteq[0,1]$. \\
+       & 则 $g$ 在 $[0,1]$ 内存在不动点. \\
+       & 对于所有 $x\in[0,1]$, $|g'(x)|\leq\frac{1}{2}<1$. \\
+       & 则 $g$ 在 $[0,1]$ 内存在惟一不动点 $p_0$. \\
+    (b)& 根据定理2.2有 \\
+       & $g'(x)=-2^{-x}\cdot\ln2$, 则 $g(x)$, $g'(x)$ 在 $[0,1]$ 上连续.\\
+       & 对于所有 $x\in[0,1]$, $g(x)\in[\frac{1}{2},1]\subseteq[0,1]$. \\
+       & 则 $g$ 在 $[0,1]$ 内存在不动点. \\
+       & 对于所有 $x\in[0,1]$, $|g'(x)|\leq\ln2<1$. \\
+       & 则 $g$ 在 $[0,1]$ 内存在惟一不动点 $p_0$. \\
+    (c)& $g'(x)=-\frac{1}{x^2}$, 则 $g(x)$ 在 $[0.5,5.2]$ 上为减函数.\\
+       & 对于 $x=1\in[0.5,5.2]$ 有 $x=g(x)$.即 $x=1$ 是 $g$ 的一个不动点.\\
+       & 而 $y=x$ 在 $[0.5,5.2]$ 上为增函数, 则 $(1,1)$ 是 $y=x$ 和 $y=g(x)$ 在 $[0.5,5.2]$ 上的惟一交点, 即 $x=1$ 为惟一不动点.
+    \end{tabular}
+
+    \subsection*{4.Let $g(x)=x^2+x-4$. Can fixed-point iteration be used to find the solution(s) to the equation $x=g(x)$? Why?}
+    \qquad 令 $g(x)=x$ 可解得函数的两个不动点 $x=2$ 和 $x=-2$. 函数的导数 $g'(x)=2x+1$. 则这里考虑两种情况. \\
+    \qquad 情况(1): $P=-2$, 因为在 $[-2.5,-1.5]$ 中, $|g'(x)|\geq2>1$, 根据定理2.3, 序列不会收敛到 $P=-2$. 不能使用不动点迭代法获得解. \\
+    \qquad 情况(2): $P=2$, 因为在 $[1.5,2.5]$ 中, $|g'(x)|\geq4>1$, 根据定理2.3, 序列不会收敛到 $P=2$. 不能使用不动点迭代法获得解. \\
+    \qquad 综上所述可以得知该函数不能使用不动点迭代法获得方程的解.
+
+    \subsection*{5.Let $g(x)=x\cos(x)$. Solve $x=g(x)$ and find all the fixed points of $g$ (there are infinitely many). Can fixed-point iteration be used to find the solution(s) to the equation $x=g(x)$? Why?}
+    \qquad 令 $g(x)=x$, 解得 $x=2k\pi, k\in Z$. $g'(x)=\cos x-x\sin x$. \\
+    \qquad $|g'(2k\pi)|=1$, 因此不能应用定理2.3. 画出 $g'(x)$ 的图像如下, 可以得知只有 $x=0$ 这个不动点附近时 $|g'(x)|<1$ 可以使用不动点迭代法, 其他不动点均不能使用. \\
+    \begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.1]{cosx-xsinx.png}
+    \caption*{函数 $y=\cos x-x\sin x$ 的图像}
+    \end{figure}
+
+
+    \section*{P61}
+    \subsection*{4.Start with $[a_0,b_0]$ and use the false position method to compute $c_0$, $c_1$, $c_2$ and $c_3$. $e^x-2-x=0, [a_0,b_0]=[-2.4,-1.6]$.}
+    \begin{tabular}{rl}
+    由试值法,& $\displaystyle c_n=b_n-\frac{f(b_n)(b_n-a_n)}{f(b_n)-f(a_n)}$  \\
+            & $a_0=-2.4$, $b_0=-1.6$, $f(a_0)\approx0.4907$, $f(b_0)\approx-0.1981$, $c_0\approx-1.8301$, $f(c_0)\approx-0.0095$. \\
+            & $a_1=-2.4$, $b_1=-1.8301$, $f(a_1)\approx0.4907$, $f(b_1)\approx-0.0095$, $c_1\approx-1.8409$, $f(c_1)\approx-0.0004$. \\
+            & $a_2=-2.4$, $b_2=-1.8409$, $f(a_2)\approx0.4907$, $f(b_2)\approx-0.0004$, $c_2\approx-1.8414$, $f(c_2)\approx-0.0000048$. \\
+            & $a_3=-2.4$, $b_3=-1.8414$, $f(a_3)\approx0.4907$, $f(b_3)\approx-0.0000048$, $c_3\approx-1.84140546414$, $f(c_3)\approx0.000000165$.
+    \end{tabular}
+
+    \subsection*{9.What will happen if the bisection method is used with the function $f(x)=\frac{1}{x-2}$ and \\
+    (a) the interval is [3,7]? \\ (b) the interval is [1,7]?}
+    $f(x)$的定义域为$x\neq2$, $\displaystyle f'(x)=-\frac{1}{(x-2)^2}$. \\
+    在 $[3,7]$ 上 $f'(x)<0$, $f(x)$ 单调递减. \\
+    在 $[1,7]$ 上, 当 $x\neq2$ 时均有 $f'(x)<0$, $f(x)$ 在 $[1,2)$ 和 $(2,7]$ 分别单调递减. 而两个区间中存在间断. \\
+    由二分法有 \\
+    \qquad(a) $a_0=3$, $b_0=7$, $f(a_0)=1>0$, $f(b_0)=\frac{1}{5}>0$, 而 $f(x)$ 单调递减, 则区间内无零点. \\
+    \qquad(b)由于二分法只能在连续函数中使用, 因此需分为两个区间计算. \\
+    \qquad\qquad(i)区间 $[1,2)$, $a_0=1$, $b_0\rightarrow2^-$, $f(a_0)=-1<0$, $\lim\limits_{b_0\rightarrow2^-}f(b_0)=-\infty<0$, 而 $f(x)$ 单调递减, 则区间内无零点. \\
+    \qquad\qquad(ii)区间 $(2,7]$, $a_0\rightarrow2^+$, $b_0=7$, $\lim\limits_{a_0\rightarrow2^+}f(a_0)=+\infty>0$, $f(b_0)=\frac{1}{5}>0$, 而 $f(x)$ 单调递减, 则区间内无零点.
+
+    \subsection*{11.Suppose that the bisection method is used to find a zero of $f(x)$ in the interval [2,7]. How many times must this interval be bisected to guarantee that the approximation $c_N$ has an accuracy of $5\times 10^{-9}$?}
+    由二分法定理, 设 $f\in C(2,7)$ 且存在数 $r\in[2,7]$ 满足 $f(r)=0$, 则有 $\displaystyle|r-c_n|\leq\frac{7-2}{2^{n+1}}=\frac{5}{2^{n+1}}$. \\
+    当 $c_N$ 的精度达到 $5\times10^{-9}$ 时, 即有 $|r-c_N|<5\times10^{-9}$. 可解得 $N\geq29 $. \\
+    则可知执行30次之后精度可达到 $5\times10^{-9}$.
+
+
+    \section*{P85}
+    \subsection*{4.Let $f(x)=x^3-3x-2$. \\
+    (a) Find the Newton-Raphson formula $p_k=g(p_{k-1})$. \\
+    (b) Start with $p_0=2.1$ and find $p_1$, $p_2$, $p_3$ and $p_4$. \\
+    (c) Is the sequence converging quadratically or linearly?}
+    (a) $f'(x)=3x^2-3$, 由牛顿-拉夫森定理, $\displaystyle g(x)=x-\frac{f(x)}{f'(x)}=\frac{2x^3+2}{3x^2-3}$. \\
+    (b) 令 $p_0=2.1$, 则 \\
+    \begin{spacing}{2}
+    \qquad $\displaystyle p_1=g(p_0)=\frac{331}{165}\approx2.00606061$. \qquad $\displaystyle p_2=g(p_1)=\frac{82171}{41085}\approx2.00002434$. \\
+    \qquad $\displaystyle p_3=g(p_2)=\frac{5064054931}{2532027465}\approx2.000000000395$. \qquad $\displaystyle p_4=g(p_3)=\frac{19233489258139061071}{9616744629069530535}\approx2.000000000000000000104$. \\
+    \end{spacing}
+    (c) $f(x)=x^3-3x-2=(x-2)(x+1)^2$ 则可知解 $f(x)=0$ 可得 $x=-1$ 或 $x=2$. 且 $x=-1$ 为二重根. \\
+    \qquad 则收敛到 $x=-1$ 时为线性收敛, 收敛到 $x=2$ 时为二次收敛.
+
+    \subsection*{8.Use the secant method and formula(27) and compute the next two iterates $p_2$ and $p_3$. Let $f(x)=x^2-2x-1$. Start with $p_0=2.6$ and $p_1=2.5$.}
+    由割线法的一般项公式 $\displaystyle p_{k+1}=g(p_k,p_{k-1})=p_k-\frac{f(p_k)(p_k-p_{k-1})}{f(p_k)-f(p_{k-1})}$. 有 \\
+    \quad $\displaystyle p_2=p_1-\frac{f(p_1)(p_1-p_0)}{f(p_1)-f(p_0)}=\frac{75}{31}\approx2.419354839$ \\
+    \quad $\displaystyle p_3=p_2-\frac{f(p_2)(p_2-p_1)}{f(p_2)-f(p_1)}=\frac{437}{181}\approx2.41436464$
+
+\end{flushleft}
+\end{document}
