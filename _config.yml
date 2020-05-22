@@ -303,7 +303,7 @@ friends:
     portrait: /public/image/misaka.jpeg
   - name: AoraMD
     src: https://blog.aoramd.moe
-    description: Android & Flutter 摸鱼开发，Arcaea 底层玩家。
+    description: Android & Flutter 开发大佬。
     portrait: /public/image/AoraMD.jpg
 
 page404:
