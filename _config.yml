@@ -301,6 +301,10 @@ friends:
     src: https://misaka-mikodo.github.io
     description: 浩腾神仙~
     portrait: /public/image/misaka.jpeg
+  - name: AoraMD
+    src: https://blog.aoramd.moe
+    description: Android & Flutter 摸鱼开发，Arcaea 底层玩家。
+    portrait: /public/image/AoraMD.jpg
 
 page404:
   search_children: # 腾讯公益
