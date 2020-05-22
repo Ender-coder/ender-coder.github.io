@@ -305,6 +305,10 @@ friends:
     src: https://blog.aoramd.moe
     description: Android & Flutter 开发大佬。
     portrait: /public/image/AoraMD.jpg
+  - name: Grain
+    src: https://whitebeerhouse.github.io
+    description: 大表姐的啤酒屋~
+    portrait: /public/image/Grain.jpeg
 
 page404:
   search_children: # 腾讯公益
