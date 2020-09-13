@@ -309,6 +309,10 @@ friends:
     src: https://whitebeerhouse.github.io
     description: 大表姐的啤酒屋~
     portrait: /public/image/Grain.jpeg
+  - name: Jed
+    src: https://github.com/xJed
+    description: 不知姓名的学长，他的 github 帮助了我许多~
+    portrait: /public/image/xjed.png
 
 page404:
   search_children: # 腾讯公益
